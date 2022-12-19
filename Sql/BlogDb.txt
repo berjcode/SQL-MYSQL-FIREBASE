@@ -1,0 +1,70 @@
+USE DBGoTrip
+
+create table tblKsurumsal(
+id int not null		identity primary key,
+Mail Varchar(200) not null,
+Tlf varchar(200) not null,
+Adres Varchar(200) not null,
+Twitter varchar(200) not null,
+Youtube varchar(200) not null,
+Instagram varchar(200) not null,
+Facebook varchar(200) not null,
+Logo varchar(100) not null,
+SiteOzet varchar(500) not null
+
+)
+
+
+create table tblKurumsal(
+id int not null		identity primary key,
+Baslik Varchar(250) not null,
+Ozet varchar(500) not null,
+
+Detay varchar(1000) not null
+
+)
+
+create table tblTurPaket(
+id int not null		identity primary key,
+Ad Varchar(200) not null,
+Fiyat int not null,
+sure int not null,
+
+Lokasyon varchar(100) not null,
+Resim varchar(500) not null,
+Detay varchar(100) not null
+
+)
+
+
+create table tblBlogKategori(
+id int not null		identity primary key,
+Ad Varchar(200) not null
+
+)
+
+create table tblBlog(
+id int not null		identity primary key,
+Baslik Varchar(200) not null,
+Ozet Varchar(200) not null,
+KategoriId int not null foreign key references tblBlogKategori(id),
+Resim Varchar(200) not null,
+Detay varchar(100) not null,
+Tarih datetime not null
+
+)
+
+create table tblGaleriKategori(
+id int not null		identity primary key,
+Ad Varchar(200) not null
+
+)
+create table tblGaleri(
+id int not null		identity primary key,
+Baslik Varchar(200) not null,
+
+KategoriId int not null foreign key references tblGaleriKategori(id),
+Resim Varchar(200) not null,
+
+
+)
